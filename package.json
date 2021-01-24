@@ -15,5 +15,14 @@
     "express": "^4.16.3",
     "mongoose": "^5.3.16",
     "morgan": "^1.9.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JC72/JeffClegg_17_WorkoutTracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JC72/JeffClegg_17_WorkoutTracker/issues"
+  },
+  "homepage": "https://github.com/JC72/JeffClegg_17_WorkoutTracker#readme"
 }
