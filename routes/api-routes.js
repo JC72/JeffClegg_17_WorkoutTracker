@@ -1,66 +1,80 @@
-const router = require('express').Router();
 const db = require("../models");
 
-router.get("/api/workouts", (req, res) => {
-    db.Workout.find({})
-        .then(dbWorkout => {
+
+module.exports = function (app) {
+
+    //commnet in to prepopulate database
+    // db.Workout.find({}).then(function (res) {
+    //     console.log("Checking if db is populated");
+    //     if (res.length === 0) {
+    //         console.log("DB is empty");
+    //         require("./seeders/seed.js");
+    //     }
+    // });
+
+    //get workouts
+    app.get("/api/workouts", (req, res) => {
+
+        db.Workout.find({}).then(dbWorkout => {
+            // console.log("ALL WORKOUTS");
+            // console.log(dbWorkout);
+            dbWorkout.forEach(workout => {
+                var total = 0;
+                workout.exercises.forEach(e => {
+                    total += e.duration;
+                });
+                workout.totalDuration = total;
+
+            });
+
             res.json(dbWorkout);
-        })
-        .catch(err => {
+        }).catch(err => {
             res.json(err);
         });
-});
+    });
 
-// addExercise PUT /api/workouts/ 
+    // add exercise
+    app.put("/api/workouts/:id", (req, res) => {
 
-router.put("/api/workouts/:id", ({ params, body }, res) => {
-    console.log(body);
-    db.Workout.findByIdAndUpdate(
-        params.id,
-        {
-            $push: {
-                exercises: body,
-
+        db.Workout.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+                $inc: { totalDuration: req.body.duration },
+                $push: { exercises: req.body }
             },
-        },
-        {
-            new: true,
-            runValidators: true
-        }
-    )
-        .then(dbWorkout => {
+            { new: true }).then(dbWorkout => {
+                res.json(dbWorkout);
+            }).catch(err => {
+                res.json(err);
+            });
+
+    });
+
+    //create workout
+    app.post("/api/workouts", ({ body }, res) => {
+        // console.log("WORKOUT TO BE ADDED");
+        // console.log(body);
+
+        db.Workout.create(body).then((dbWorkout => {
             res.json(dbWorkout);
-        })
-        .catch(err => {
+        })).catch(err => {
             res.json(err);
         });
-});
+    });
 
-// createWorkout POST /api/workouts
+    // get workouts in range
+    app.get("/api/workouts/range", (req, res) => {
 
-router.post("/api/workouts", ({ body }, res) => {
-    console.log(body);
-    db.Workout.create({})
-        .then(dbWorkout => {
+        db.Workout.find({}).then(dbWorkout => {
+            console.log("ALL WORKOUTS");
+            console.log(dbWorkout);
+
             res.json(dbWorkout);
-        })
-        .catch(err => {
+        }).catch(err => {
             res.json(err);
         });
 
-    res.send('Got a POST request')
-});
+    });
 
-// getWorkoutsInRange() GET /api/workouts/range
 
-router.get("/api/workouts/range", (req, res) => {
-    db.Workout.find({}).limit(7)
-        .then(dbWorkout => {
-            res.json(dbWorkout);
-        })
-        .catch(err => {
-            res.json(err);
-        });
-});
-
-module.exports = router;
+}
