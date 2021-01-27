@@ -74,6 +74,13 @@ The following folders and what they contain are listed below:
     |   |-- index.js
     |   |-- workout.js
     |-- public
+    |   |-- assets
+    |   |   |--screenshots
+    |   |   |   |-- homepage.png
+    |   |   |   |-- statspage.png
+    |   |   |   |-- exercisepage.png
+    |   |   |--video
+    |   |   |   |-- demovideo.gif
     |   |-- api.js
     |   |-- exercise.html
     |   |-- exercise.js
