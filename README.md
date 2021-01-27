@@ -25,7 +25,7 @@ This project has been loaded to my Personal GitHub Page and deployed to my Herok
 
 ## Demo:
 
-![](https://github.com/JC72/Burger/blob/main/public/videos/demovideo.gif)
+![](https://github.com/JC72/JeffClegg_17_WorkoutTracker/blob/main/public/assets/video/demovideo.gif)
 
 ## Assignment
 ### This assignment contains the following features:
@@ -39,7 +39,7 @@ This project has been loaded to my Personal GitHub Page and deployed to my Herok
 
     * A add new workout to add a different type of workout to the day.
 
-    ![Home Page](https://github.com/JC72/Burger/blob/main/public/screenshots/mainpage.png)
+    ![Home Page](https://github.com/JC72/JeffClegg_17_WorkoutTracker/blob/main/public/assets/screenshots/homepage.png)
 
 * Exercise Page
     * Contains input fields to enter the exercise information
@@ -48,7 +48,7 @@ This project has been loaded to my Personal GitHub Page and deployed to my Herok
 
     * Has a add workout button to add the workout, clears the field and allows the user to add another workout for that day.
 
-    ![Entered Page](https://github.com/JC72/Burger/blob/main/public/screenshots/enterpage.png)
+    ![Entered Page](https://github.com/JC72/JeffClegg_17_WorkoutTracker/blob/main/public/assets/screenshots/exercisepage.png)
 
 * Dashboard Page
     * Shows a pie chart for the duration of exercises performed.
@@ -60,7 +60,7 @@ This project has been loaded to my Personal GitHub Page and deployed to my Herok
     * A bar graph for the total pounds lifted for each day for seven days. 
 
 
-    ![Ate Page](https://github.com/JC72/Burger/blob/main/public/screenshots/atepage.png)
+    ![Ate Page](https://github.com/JC72/JeffClegg_17_WorkoutTracker/blob/main/public/assets/screenshots/statspage.png)
 
 
 
